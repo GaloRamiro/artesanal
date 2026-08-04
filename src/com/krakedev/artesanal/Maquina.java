@@ -2,6 +2,7 @@ package com.krakedev.artesanal;
 
 public class Maquina {
 
+	private String codigo;
 	private String nombreCerveza;
 	private String descripcion;
 	private double precioPorMl;
@@ -9,7 +10,8 @@ public class Maquina {
 	private double cantidadActual;
 
 	// Constructor con capacidad máxima personalizada
-	public Maquina(String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+	public Maquina(String codigo,String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+		this.codigo = codigo;
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
@@ -18,14 +20,16 @@ public class Maquina {
 	}
 
 	// Constructor con capacidad máxima por defecto (10000 ml)
-	public Maquina(String nombreCerveza, String descripcion, double precioPorMl) {
+	public Maquina(String codigo,String nombreCerveza, String descripcion, double precioPorMl) {
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
 		this.capacidadMaxima = 10000;
 		this.cantidadActual = 0;
 	}
-
+	public String getCodigo() {
+		return codigo;
+	}
 	public String getNombreCerveza() {
 		return nombreCerveza;
 	}
@@ -60,6 +64,7 @@ public class Maquina {
 
 	public void imprimir() {
 		System.out.println("===== INFORMACIÓN DE LA MÁQUINA =====");
+		System.out.println("Código: " + codigo);
 		System.out.println("Nombre de la cerveza: " + nombreCerveza);
 		System.out.println("Descripción: " + descripcion);
 		System.out.println("Precio por ml: $" + precioPorMl);
@@ -69,12 +74,12 @@ public class Maquina {
 	}
 
 	public void llenarMaquina() {
-		this.cantidadActual = this.capacidadMaxima - 100;
+		this.cantidadActual = this.capacidadMaxima - 200;
 	}
 
 	public boolean RecargarCerveza(double cantidad) {
 		double limitePermitido;
-		limitePermitido = capacidadMaxima - 100;
+		limitePermitido = capacidadMaxima - 200;
 		if (cantidadActual + cantidad < limitePermitido) {
 			cantidadActual = cantidadActual + cantidad;
 			return true;
