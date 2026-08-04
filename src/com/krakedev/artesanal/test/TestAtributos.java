@@ -5,7 +5,7 @@ import com.krakedev.artesanal.Maquina;
 public class TestAtributos {
 
 	public static void main(String[] args) {
-		Maquina rubia = new Maquina("Pilsener", "Cerveza rubia", 0.02, 10000);
+		Maquina rubia = new Maquina("CO12","Pilsener", "Cerveza rubia", 0.02, 10000);
 		rubia.imprimir();
 		rubia.setNombreCerveza("Golden");
 		rubia.setDescripcion("Cerveza con aroma intenso");

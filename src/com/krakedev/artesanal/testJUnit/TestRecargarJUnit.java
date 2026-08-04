@@ -11,7 +11,7 @@ public class TestRecargarJUnit {
 
 	@Test
 	public void testRecargaExitosa() {
-		Maquina rubia = new Maquina("Pilsener", "Cerveza", 0.03, 8000);
+		Maquina rubia = new Maquina("CO014","Pilsener", "Cerveza", 0.03, 8000);
 
 		boolean resultado = rubia.RecargarCerveza(3000);
 
@@ -21,7 +21,7 @@ public class TestRecargarJUnit {
 
 	@Test
 	public void testRecargaFallidaPorDesvorde() {
-		Maquina negra = new Maquina("Club", "Cerveza Frias", 0.03, 8000);
+		Maquina negra = new Maquina("CO088","Club", "Cerveza Frias", 0.03, 8000);
 		negra.RecargarCerveza(7000);
 		boolean resultado = negra.RecargarCerveza(1000);
 

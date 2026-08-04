@@ -12,7 +12,7 @@ public class TestServirCervezaAI {
 	// utilizando el constructor con capacidad máxima personalizada.
 	@Test
 	public void testServirConCapacidadPersonalizada() {
-		Maquina maquina = new Maquina("Pilsener", "Rubia", 0.02, 5000);
+		Maquina maquina = new Maquina("CO024","Pilsener", "Rubia", 0.02, 5000);
 
 		maquina.RecargarCerveza(2000);
 
@@ -26,7 +26,7 @@ public class TestServirCervezaAI {
 	// capacidad máxima por defecto.
 	@Test
 	public void testServirConConstructorPorDefecto() {
-		Maquina maquina = new Maquina("Club", "Premium", 0.03);
+		Maquina maquina = new Maquina("CO016","Club", "Premium", 0.03);
 
 		maquina.RecargarCerveza(3000);
 
@@ -39,7 +39,7 @@ public class TestServirCervezaAI {
 	// Valida el caso límite donde se sirve exactamente toda la cerveza disponible.
 	@Test
 	public void testServirCantidadExactaDisponible() {
-		Maquina maquina = new Maquina("Budweiser", "Lager", 0.05);
+		Maquina maquina = new Maquina("CO034","Budweiser", "Lager", 0.05);
 
 		maquina.RecargarCerveza(1500);
 
@@ -53,7 +53,7 @@ public class TestServirCervezaAI {
 	// disponible.
 	@Test
 	public void testNoServirPorCantidadInsuficiente() {
-		Maquina maquina = new Maquina("Corona", "Light", 0.04);
+		Maquina maquina = new Maquina("CO034","Corona", "Light", 0.04);
 
 		maquina.RecargarCerveza(800);
 
@@ -66,7 +66,7 @@ public class TestServirCervezaAI {
 	// Valida que no se sirva cerveza cuando la máquina está vacía.
 	@Test
 	public void testNoServirConMaquinaVacia() {
-		Maquina maquina = new Maquina("Heineken", "Premium", 0.03);
+		Maquina maquina = new Maquina("CO034","Heineken", "Premium", 0.03);
 
 		double valor = maquina.servirCerveza(500);
 
@@ -78,7 +78,7 @@ public class TestServirCervezaAI {
 	// sea 0.
 	@Test
 	public void testServirCantidadCero() {
-		Maquina maquina = new Maquina("Stella", "Belgian", 0.02);
+		Maquina maquina = new Maquina("CO043","Stella", "Belgian", 0.02);
 
 		maquina.RecargarCerveza(1000);
 
@@ -91,7 +91,7 @@ public class TestServirCervezaAI {
 	// Valida que después de llenar la máquina se pueda servir cerveza correctamente.
 	@Test
 	public void testServirDespuesDeLlenarMaquina() {
-		Maquina maquina = new Maquina("Modelo", "Especial", 0.02, 5000);
+		Maquina maquina = new Maquina("CO023","Modelo", "Especial", 0.02, 5000);
 
 		maquina.llenarMaquina();
 

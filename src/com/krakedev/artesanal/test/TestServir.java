@@ -7,7 +7,7 @@ public class TestServir {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		double valor;
-		Maquina rubia = new Maquina("Pilsener", "Cerveza rubia", 0.02, 10000);
+		Maquina rubia = new Maquina("CO074","Pilsener", "Cerveza rubia", 0.02, 10000);
 		System.out.println("-------------ESTADO ACTUAL-------------");
 		rubia.imprimir();
 		System.out.println("-------------LLENANDO MAQUINA-------------");
