@@ -98,7 +98,7 @@ public class TestServirCervezaAI {
 		double valor = maquina.servirCerveza(1000);
 
 		assertEquals(20.0, valor, 0.001);
-		assertEquals(3900.0, maquina.getCantidadActual(), 0.001);
+		assertEquals(3800.0, maquina.getCantidadActual(), 0.001);
 	}
 
 }
