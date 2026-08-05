@@ -4,6 +4,7 @@ public class Negocio {
 
 	private String nombre;
 	private Maquina maquinaA;
+	private int ultimoCodigo = 100;
 
 	public Negocio() {
 
@@ -29,6 +30,11 @@ public class Negocio {
 
 	public void setMaquinaA(Maquina maquinaA) {
 		this.maquinaA = maquinaA;
+	}
+
+	public void asignaraCodigoCliente(Cliente cliente) {
+		cliente.setCodigo(ultimoCodigo);
+	ultimoCodigo++;
 	}
 
 }
