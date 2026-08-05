@@ -34,7 +34,7 @@ public class Negocio {
 
 	public void asignaraCodigoCliente(Cliente cliente) {
 		cliente.setCodigo(ultimoCodigo);
-	ultimoCodigo++;
+		ultimoCodigo++;
 	}
 
 }
