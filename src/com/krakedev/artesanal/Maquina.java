@@ -10,7 +10,8 @@ public class Maquina {
 	private double cantidadActual;
 
 	// Constructor con capacidad máxima personalizada
-	public Maquina(String codigo,String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+	public Maquina(String codigo, String nombreCerveza, String descripcion, double precioPorMl,
+			double capacidadMaxima) {
 		this.codigo = codigo;
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
@@ -20,16 +21,19 @@ public class Maquina {
 	}
 
 	// Constructor con capacidad máxima por defecto (10000 ml)
-	public Maquina(String codigo,String nombreCerveza, String descripcion, double precioPorMl) {
+	public Maquina(String codigo, String nombreCerveza, String descripcion, double precioPorMl) {
+		this.codigo = codigo;
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
 		this.capacidadMaxima = 10000;
 		this.cantidadActual = 0;
 	}
+
 	public String getCodigo() {
 		return codigo;
 	}
+
 	public String getNombreCerveza() {
 		return nombreCerveza;
 	}
@@ -94,8 +98,8 @@ public class Maquina {
 			double valor;
 			valor = cantidad * precioPorMl;
 			return valor;
-		}else {
-		return 0;
+		} else {
+			return 0;
 		}
 	}
 
