@@ -37,4 +37,60 @@ public class NegocioMejorado {
 
 		return "M-" + numero;
 	}
+	
+	/*
+	 * Agrega una nueva máquina al negocio.
+	 * Antes de agregarla verifica que el código generado no esté repetido.
+	 * Retorna true si se agregó y false si el código ya existe.
+	 */
+	public boolean agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
+
+		String codigo = generarCodigo();
+
+		// Buscamos si ya existe una máquina con el código generado
+		Maquina maquinaExistente = recuperarMaquina(codigo);
+
+		if (maquinaExistente == null) {
+
+			Maquina maquina = new Maquina(codigo, nombreCerveza, descripcion, precioPorMl);
+
+			maquinas.add(maquina);
+
+			return true;
+		}
+
+		return false;
+	}
+	
+	/*
+	 * Llena todas las máquinas registradas en el negocio.
+	 * Se recorre el ArrayList utilizando un for.
+	 */
+	public void cargarMaquinas() {
+
+		for (int i = 0; i < maquinas.size(); i++) {
+
+			Maquina maquina = maquinas.get(i);
+
+			maquina.llenarMaquina();
+		}
+	}
+	
+	/*
+	 * Busca una máquina por su código.
+	 * Retorna la máquina encontrada o null si no existe.
+	 */
+	public Maquina recuperarMaquina(String codigo) {
+
+		for (int i = 0; i < maquinas.size(); i++) {
+
+			Maquina maquina = maquinas.get(i);
+
+			if (maquina.getCodigo().equals(codigo)) {
+				return maquina;
+			}
+		}
+
+		return null;
+	}
 }
