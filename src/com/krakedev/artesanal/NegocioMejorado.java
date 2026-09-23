@@ -149,4 +149,57 @@ public class NegocioMejorado {
 
 		return null;
 	}
+
+	/*
+	 * Registra el valor de un consumo realizado por un cliente. El nuevo valor se
+	 * acumula al total que el cliente ya había consumido.
+	 */
+	public void registrarConsumo(Cliente cliente, double valorConsumido) {
+
+		double totalActual = cliente.getTotalConsumido();
+
+		cliente.setTotalConsumido(totalActual + valorConsumido);
+	}
+
+	/*
+	 * Realiza el consumo de cerveza de un cliente. Busca al cliente y a la máquina
+	 * mediante sus códigos. La máquina sirve la cantidad solicitada y el valor
+	 * generado se registra como consumo del cliente.
+	 */
+	public void consumirCerveza(int codigoCliente, String codigoMaquina, double cantidad) {
+
+		// Buscamos la máquina utilizando su código
+		Maquina maquina = recuperarMaquina(codigoMaquina);
+
+		// Buscamos el cliente utilizando su código
+		Cliente cliente = buscarClientePorCodigo(codigoCliente);
+
+		// Verificamos que tanto la máquina como el cliente existan
+		if (maquina != null && cliente != null) {
+
+			// La máquina sirve la cerveza y retorna el valor vendido
+			double valorConsumido = maquina.servirCerveza(cantidad);
+
+			// Acumulamos el valor en el total consumido por el cliente
+			registrarConsumo(cliente, valorConsumido);
+		}
+	}
+
+	/*
+	 * Calcula el valor total vendido por el negocio. Recorre todos los clientes y
+	 * acumula el total consumido por cada uno.
+	 */
+	public double consultarValorVendido() {
+
+		double totalVendido = 0;
+
+		for (int i = 0; i < clientes.size(); i++) {
+
+			Cliente cliente = clientes.get(i);
+
+			totalVendido = totalVendido + cliente.getTotalConsumido();
+		}
+
+		return totalVendido;
+	}
 }
